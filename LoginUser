@@ -12,80 +12,71 @@ const InlineStyledLoginPage = () => {
 
   return (
     <div
+    style={{
+      minHeight: "100vh",
+      backgroundImage:
+        "url('https://unsplash.com/photos/a-pile-of-comics-sitting-next-to-each-other-8SeJUmfahu0')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      position: "relative",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: "1rem",
+    }}
+  >
+    {/* Background overlay */}
+    <div
       style={{
-        minHeight: "100vh",
-        backgroundImage:
-          "url('https://unsplash.com/photos/a-pile-of-comics-sitting-next-to-each-other-8SeJUmfahu0')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: "rgba(255, 255, 255, 0.85)",
+        backdropFilter: "blur(2px)",
+      }}
+    ></div>
+
+    <div
+      style={{
+        width: "100%",
+        maxWidth: "28rem",
+        backgroundColor: "white",
+        borderRadius: "1rem",
+        boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+        padding: "2rem",
         position: "relative",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "1rem",
+        zIndex: 1,
       }}
     >
-      {/* Background overlay */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: "rgba(255, 255, 255, 0.85)",
-          backdropFilter: "blur(2px)",
-        }}
-      ></div>
-
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "28rem",
-          backgroundColor: "white",
-          borderRadius: "1rem",
-          boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
-          padding: "2rem",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        {/* Logo */}
-        <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
-          <img
-            src="https://unsplash.com/photos/a-blurry-image-of-a-black-background-with-a-red-orange-and-blue-mjiE0i_BsIk" // Replace with your actual logo URL
-            //alt="Company Logo"
-            style={{
-              height: "50px",
-              width: "auto",
-              maxWidth: "200px",
-              objectFit: "contain",
-            }}
-          />
-        </div>
-
+      {/* Logo */}
+      <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+        <img
+          src="https://unsplash.com/photos/a-blurry-image-of-a-black-background-with-a-red-orange-and-blue-mjiE0i_BsIk" // Replace with your actual logo URL
+          //alt="Company Logo"
+          style={{
+            height: "50px",
+            width: "auto",
+            maxWidth: "200px",
+            objectFit: "contain",
+          }}
+        />
+      </div>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "2rem" }}>
           <h1
             style={{
-              fontSize: "1.8rem",
+              fontSize: "1.5rem",
               fontWeight: 700,
               color: "#111827",
               marginBottom: "0.5rem",
-              fontFamily: "'Bungee', cursive",
-              letterSpacing: "1px",
             }}
           >
             LOGIN TO YOUR ACCOUNT
           </h1>
-          <p
-            style={{
-              color: "#4b5563",
-              fontSize: "0.875rem",
-              fontFamily: "'Comfortaa', cursive",
-            }}
-          >
+          <p style={{ color: "#4b5563", fontSize: "0.875rem" }}>
             DON'T HAVE AN ACCOUNT?{" "}
             <a
               href="#"
@@ -93,7 +84,6 @@ const InlineStyledLoginPage = () => {
                 color: "#2563eb",
                 fontWeight: 500,
                 textDecoration: "underline",
-                fontFamily: "'Comfortaa', cursive",
               }}
             >
               CLICK HERE TO REGISTER
@@ -129,7 +119,6 @@ const InlineStyledLoginPage = () => {
                 backgroundColor: "white",
                 fontSize: "0.875rem",
                 color: "#6b7280",
-                fontFamily: "'Comfortaa', cursive",
               }}
             >
               SIGN IN WITH YOUR EMAIL
@@ -147,11 +136,11 @@ const InlineStyledLoginPage = () => {
               htmlFor="email"
               style={{
                 display: "block",
+                align: "center",
                 fontSize: "0.875rem",
                 fontWeight: 500,
                 color: "#374151",
                 marginBottom: "0.25rem",
-                fontFamily: "'Comfortaa', cursive",
               }}
             >
               Email
@@ -163,14 +152,12 @@ const InlineStyledLoginPage = () => {
               onChange={(e) => setEmail(e.target.value)}
               style={{
                 width: "90%",
-                padding: "0.75rem 1rem",
+                padding: "0.5rem 1rem",
                 border: "1px solid #e5e7eb",
                 borderRadius: "0.5rem",
                 outline: "none",
-                boxShadow: "0 0 0 2px rgba(59, 130, 246, 0.1)",
-                borderColor: "#e5e7eb",
-                fontFamily: "'Comfortaa', cursive",
-                transition: "all 0.3s ease",
+                boxShadow: "0 0 0 2px rgba(59, 130, 246, 0.5)",
+                borderColor: "transparent",
               }}
               placeholder="Enter your email"
               required
@@ -186,7 +173,6 @@ const InlineStyledLoginPage = () => {
                 fontWeight: 500,
                 color: "#374151",
                 marginBottom: "0.25rem",
-                fontFamily: "'Comfortaa', cursive",
               }}
             >
               Password
@@ -198,14 +184,12 @@ const InlineStyledLoginPage = () => {
               onChange={(e) => setPassword(e.target.value)}
               style={{
                 width: "90%",
-                padding: "0.75rem 1rem",
+                padding: "0.5rem 1rem",
                 border: "1px solid #e5e7eb",
                 borderRadius: "0.5rem",
                 outline: "none",
-                boxShadow: "0 0 0 2px rgba(59, 130, 246, 0.1)",
-                borderColor: "#e5e7eb",
-                fontFamily: "'Comfortaa', cursive",
-                transition: "all 0.3s ease",
+                boxShadow: "0 0 0 2px rgba(59, 130, 246, 0.5)",
+                borderColor: "transparent",
               }}
               placeholder="Enter your password"
               required
@@ -220,20 +204,10 @@ const InlineStyledLoginPage = () => {
               color: "white",
               padding: "0.75rem 1rem",
               borderRadius: "0.5rem",
-              fontWeight: 600,
+              fontWeight: 500,
               outline: "none",
-              border: "none",
-              cursor: "pointer",
+              boxShadow: "0 0 0 2px rgba(0, 0, 0, 0.5)",
               marginTop: "0.5rem",
-              fontFamily: "'Bungee', cursive",
-              letterSpacing: "1px",
-              fontSize: "1rem",
-              transition: "all 0.3s ease",
-              boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-              ":hover": {
-                transform: "translateY(-2px)",
-                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-              },
             }}
           >
             LOGIN
@@ -246,7 +220,6 @@ const InlineStyledLoginPage = () => {
                 fontSize: "0.875rem",
                 color: "#2563eb",
                 textDecoration: "underline",
-                fontFamily: "'Comfortaa', cursive",
               }}
             >
               FORGOT YOUR PASSWORD?
@@ -288,7 +261,6 @@ const InlineStyledLoginPage = () => {
                 backgroundColor: "white",
                 fontSize: "0.875rem",
                 color: "#6b7280",
-                fontFamily: "'Comfortaa', cursive",
               }}
             >
               OR
@@ -306,7 +278,6 @@ const InlineStyledLoginPage = () => {
               color: "#4b5563",
               textAlign: "center",
               marginBottom: "0.5rem",
-              fontFamily: "'Comfortaa', cursive",
             }}
           >
             SIGN IN WITH A SOCIAL ACCOUNT
@@ -319,18 +290,11 @@ const InlineStyledLoginPage = () => {
               alignItems: "center",
               justifyContent: "center",
               gap: "0.5rem",
-              padding: "0.75rem 1rem",
+              padding: "0.5rem 1rem",
               border: "1px solid #e5e7eb",
               borderRadius: "0.5rem",
               backgroundColor: "white",
               outline: "none",
-              cursor: "pointer",
-              fontFamily: "'Comfortaa', cursive",
-              fontWeight: 500,
-              transition: "all 0.3s ease",
-              ":hover": {
-                backgroundColor: "#f9fafb",
-              },
             }}
           >
             <svg
@@ -354,7 +318,6 @@ const InlineStyledLoginPage = () => {
             textAlign: "center",
             fontSize: "0.75rem",
             color: "#6b7280",
-            fontFamily: "'Comfortaa', cursive",
           }}
         >
           By creating an account, you are agreeing to our{" "}
