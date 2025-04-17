@@ -1,0 +1,370 @@
+import { useState } from "react";
+
+const InlineStyledLoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Login attempt with:", { email, password });
+    alert("Login successful!");
+  };
+
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundImage:
+          "url('https://unsplash.com/photos/a-pile-of-comics-sitting-next-to-each-other-8SeJUmfahu0')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        position: "relative",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "1rem",
+      }}
+    >
+      {/* Background overlay */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "rgba(255, 255, 255, 0.85)",
+          backdropFilter: "blur(2px)",
+        }}
+      ></div>
+
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "28rem",
+          backgroundColor: "white",
+          borderRadius: "1rem",
+          boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+          padding: "2rem",
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        {/* Logo */}
+        <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+          <img
+            src="https://unsplash.com/photos/a-blurry-image-of-a-black-background-with-a-red-orange-and-blue-mjiE0i_BsIk" // Replace with your actual logo URL
+            //alt="Company Logo"
+            style={{
+              height: "50px",
+              width: "auto",
+              maxWidth: "200px",
+              objectFit: "contain",
+            }}
+          />
+        </div>
+
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+          <h1
+            style={{
+              fontSize: "1.8rem",
+              fontWeight: 700,
+              color: "#111827",
+              marginBottom: "0.5rem",
+              fontFamily: "'Bungee', cursive",
+              letterSpacing: "1px",
+            }}
+          >
+            LOGIN TO YOUR ACCOUNT
+          </h1>
+          <p
+            style={{
+              color: "#4b5563",
+              fontSize: "0.875rem",
+              fontFamily: "'Comfortaa', cursive",
+            }}
+          >
+            DON'T HAVE AN ACCOUNT?{" "}
+            <a
+              href="#"
+              style={{
+                color: "#2563eb",
+                fontWeight: 500,
+                textDecoration: "underline",
+                fontFamily: "'Comfortaa', cursive",
+              }}
+            >
+              CLICK HERE TO REGISTER
+            </a>
+          </p>
+        </div>
+
+        {/* Divider */}
+        <div style={{ position: "relative", marginBottom: "1.5rem" }}>
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{ width: "100%", borderTop: "1px solid #e5e7eb" }}
+            ></div>
+          </div>
+          <div
+            style={{
+              position: "relative",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <span
+              style={{
+                paddingLeft: "0.5rem",
+                paddingRight: "0.5rem",
+                backgroundColor: "white",
+                fontSize: "0.875rem",
+                color: "#6b7280",
+                fontFamily: "'Comfortaa', cursive",
+              }}
+            >
+              SIGN IN WITH YOUR EMAIL
+            </span>
+          </div>
+        </div>
+
+        {/* Login Form */}
+        <form
+          onSubmit={handleSubmit}
+          style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+        >
+          <div>
+            <label
+              htmlFor="email"
+              style={{
+                display: "block",
+                fontSize: "0.875rem",
+                fontWeight: 500,
+                color: "#374151",
+                marginBottom: "0.25rem",
+                fontFamily: "'Comfortaa', cursive",
+              }}
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              style={{
+                width: "90%",
+                padding: "0.75rem 1rem",
+                border: "1px solid #e5e7eb",
+                borderRadius: "0.5rem",
+                outline: "none",
+                boxShadow: "0 0 0 2px rgba(59, 130, 246, 0.1)",
+                borderColor: "#e5e7eb",
+                fontFamily: "'Comfortaa', cursive",
+                transition: "all 0.3s ease",
+              }}
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="password"
+              style={{
+                display: "block",
+                fontSize: "0.875rem",
+                fontWeight: 500,
+                color: "#374151",
+                marginBottom: "0.25rem",
+                fontFamily: "'Comfortaa', cursive",
+              }}
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              style={{
+                width: "90%",
+                padding: "0.75rem 1rem",
+                border: "1px solid #e5e7eb",
+                borderRadius: "0.5rem",
+                outline: "none",
+                boxShadow: "0 0 0 2px rgba(59, 130, 246, 0.1)",
+                borderColor: "#e5e7eb",
+                fontFamily: "'Comfortaa', cursive",
+                transition: "all 0.3s ease",
+              }}
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            style={{
+              width: "99%",
+              backgroundColor: "#000",
+              color: "white",
+              padding: "0.75rem 1rem",
+              borderRadius: "0.5rem",
+              fontWeight: 600,
+              outline: "none",
+              border: "none",
+              cursor: "pointer",
+              marginTop: "0.5rem",
+              fontFamily: "'Bungee', cursive",
+              letterSpacing: "1px",
+              fontSize: "1rem",
+              transition: "all 0.3s ease",
+              boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+              ":hover": {
+                transform: "translateY(-2px)",
+                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+              },
+            }}
+          >
+            LOGIN
+          </button>
+
+          <div style={{ textAlign: "center", marginTop: "0.5rem" }}>
+            <a
+              href="#"
+              style={{
+                fontSize: "0.875rem",
+                color: "#2563eb",
+                textDecoration: "underline",
+                fontFamily: "'Comfortaa', cursive",
+              }}
+            >
+              FORGOT YOUR PASSWORD?
+            </a>
+          </div>
+        </form>
+
+        {/* Social Login Divider */}
+        <div
+          style={{
+            position: "relative",
+            marginTop: "1.5rem",
+            marginBottom: "1.5rem",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{ width: "100%", borderTop: "1px solid #e5e7eb" }}
+            ></div>
+          </div>
+          <div
+            style={{
+              position: "relative",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <span
+              style={{
+                paddingLeft: "0.5rem",
+                paddingRight: "0.5rem",
+                backgroundColor: "white",
+                fontSize: "0.875rem",
+                color: "#6b7280",
+                fontFamily: "'Comfortaa', cursive",
+              }}
+            >
+              OR
+            </span>
+          </div>
+        </div>
+
+        {/* Social Login */}
+        <div
+          style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}
+        >
+          <p
+            style={{
+              fontSize: "0.875rem",
+              color: "#4b5563",
+              textAlign: "center",
+              marginBottom: "0.5rem",
+              fontFamily: "'Comfortaa', cursive",
+            }}
+          >
+            SIGN IN WITH A SOCIAL ACCOUNT
+          </p>
+          <button
+            type="button"
+            style={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5rem",
+              padding: "0.75rem 1rem",
+              border: "1px solid #e5e7eb",
+              borderRadius: "0.5rem",
+              backgroundColor: "white",
+              outline: "none",
+              cursor: "pointer",
+              fontFamily: "'Comfortaa', cursive",
+              fontWeight: 500,
+              transition: "all 0.3s ease",
+              ":hover": {
+                backgroundColor: "#f9fafb",
+              },
+            }}
+          >
+            <svg
+              style={{
+                width: "1.25rem",
+                height: "1.25rem",
+                fill: "currentColor",
+              }}
+              viewBox="0 0 24 24"
+            >
+              <path d="M12.545 10.239v3.821h5.445c-0.712 2.315-2.647 3.972-5.445 3.972-3.332 0-6.033-2.701-6.033-6.032s2.701-6.032 6.033-6.032c1.498 0 2.866 0.549 3.921 1.453l2.814-2.814c-1.786-1.667-4.166-2.683-6.735-2.683-5.522 0-10 4.477-10 10s4.478 10 10 10c8.396 0 10-7.524 10-10 0-0.67-0.069-1.325-0.189-1.955h-9.811z" />
+            </svg>
+            <span>Sign in with Google</span>
+          </button>
+        </div>
+
+        {/* Footer */}
+        <div
+          style={{
+            marginTop: "2rem",
+            textAlign: "center",
+            fontSize: "0.75rem",
+            color: "#6b7280",
+            fontFamily: "'Comfortaa', cursive",
+          }}
+        >
+          By creating an account, you are agreeing to our{" "}
+          <a href="#" style={{ color: "#2563eb", textDecoration: "underline" }}>
+            Privacy Policy
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default InlineStyledLoginPage;
