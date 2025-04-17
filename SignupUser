@@ -1,0 +1,413 @@
+import { useState } from "react";
+
+const ComicRegisterPage = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Registration attempt:", { name, email, phone, password });
+    alert("KAPOW! Registration Successful!");
+  };
+
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#0a0a1a",
+        backgroundImage: "radial-gradient(#ff4757 1px, transparent 1px)",
+        backgroundSize: "20px 20px",
+        position: "relative",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "1rem",
+        fontFamily: "'Comic Neue', cursive, sans-serif",
+      }}
+    >
+      {/* Comic "POW!" header */}
+      <div
+        style={{
+          position: "absolute",
+          top: "20px",
+          left: "0",
+          right: "0",
+          textAlign: "center",
+          backgroundColor: "#ff4757",
+          color: "#fff",
+          padding: "0.5rem",
+          borderTop: "3px solid #000",
+          borderBottom: "3px solid #000",
+          fontFamily: "'Bangers', cursive",
+          letterSpacing: "3px",
+          fontSize: "1.2rem",
+          boxShadow: "0 4px 0 #000",
+          zIndex: 10,
+        }}
+      >
+        💥 JOIN THE HERO LEAGUE! 💥
+      </div>
+
+      {/* Main container */}
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "30rem",
+          backgroundColor: "#1a1a2e",
+          borderRadius: "20px",
+          border: "5px solid #ff4757",
+          boxShadow: "10px 10px 0 #000",
+          padding: "2rem",
+          position: "relative",
+          marginTop: "3rem",
+        }}
+      >
+        {/* Comic explosion decoration */}
+        <div
+          style={{
+            position: "absolute",
+            top: "-25px",
+            right: "-25px",
+            backgroundColor: "#ff4757",
+            color: "#fff",
+            border: "3px solid #000",
+            borderRadius: "50%",
+            width: "60px",
+            height: "60px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "1.5rem",
+            fontWeight: "bold",
+            fontFamily: "'Bangers', cursive",
+            transform: "rotate(15deg)",
+            boxShadow: "4px 4px 0 #000",
+          }}
+        >
+          ✨
+        </div>
+
+        {/* Logo */}
+        <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+          <div
+            style={{
+              display: "inline-block",
+              padding: "0.5rem 1.5rem",
+              backgroundColor: "#ff4757",
+              color: "#fff",
+              fontSize: "1.8rem",
+              fontWeight: "bold",
+              fontFamily: "'Bangers', cursive",
+              letterSpacing: "2px",
+              border: "3px solid #000",
+              borderRadius: "10px",
+              boxShadow: "6px 6px 0 #000",
+              textShadow: "2px 2px 0 #000",
+            }}
+          >
+            HERO SIGN-UP
+          </div>
+        </div>
+
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+          <h1
+            style={{
+              fontSize: "2rem",
+              fontWeight: "bold",
+              color: "#ff4757",
+              marginBottom: "0.5rem",
+              fontFamily: "'Bangers', cursive",
+              letterSpacing: "2px",
+              textShadow: "3px 3px 0 #000",
+            }}
+          >
+            CREATE YOUR HERO ID
+          </h1>
+          <p
+            style={{
+              color: "#ddd",
+              fontSize: "0.875rem",
+              fontFamily: "'Comic Neue', cursive",
+              fontWeight: "bold",
+            }}
+          >
+            Become part of our superhero alliance!
+          </p>
+        </div>
+
+        {/* Comic-style divider */}
+        <div
+          style={{
+            position: "relative",
+            margin: "1.5rem 0",
+            height: "8px",
+            background:
+              "repeating-linear-gradient(45deg, #ff4757, #ff4757 10px, #000 10px, #000 20px)",
+            borderTop: "2px solid #000",
+            borderBottom: "2px solid #000",
+          }}
+        ></div>
+
+        {/* Registration Form */}
+        <form
+          onSubmit={handleSubmit}
+          style={{ display: "flex", flexDirection: "column", gap: "1.2rem" }}
+        >
+          {/* Name Input */}
+          <div>
+            <label
+              htmlFor="name"
+              style={{
+                display: "block",
+                fontSize: "0.875rem",
+                fontWeight: "bold",
+                color: "#ff4757",
+                marginBottom: "0.5rem",
+                fontFamily: "'Comic Neue', cursive",
+                textTransform: "uppercase",
+              }}
+            >
+              🦸‍♂️ HERO NAME
+            </label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              style={{
+                width: "90%",
+                padding: "0.75rem 1rem",
+                border: "3px solid #ff4757",
+                borderRadius: "8px",
+                outline: "none",
+                backgroundColor: "#2d2d42",
+                color: "#fff",
+                fontFamily: "'Comic Neue', cursive",
+                fontWeight: "bold",
+                boxShadow: "5px 5px 0 #000",
+                transition: "all 0.2s",
+                ":focus": {
+                  boxShadow: "3px 3px 0 #000",
+                  transform: "translate(2px, 2px)",
+                },
+              }}
+              placeholder="e.g., Captain Awesome"
+              required
+            />
+          </div>
+
+          {/* Email Input */}
+          <div>
+            <label
+              htmlFor="email"
+              style={{
+                display: "block",
+                fontSize: "0.875rem",
+                fontWeight: "bold",
+                color: "#ff4757",
+                marginBottom: "0.5rem",
+                fontFamily: "'Comic Neue', cursive",
+                textTransform: "uppercase",
+              }}
+            >
+              📧 HERO EMAIL
+            </label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              style={{
+                width: "90%",
+                padding: "0.75rem 1rem",
+                border: "3px solid #ff4757",
+                borderRadius: "8px",
+                outline: "none",
+                backgroundColor: "#2d2d42",
+                color: "#fff",
+                fontFamily: "'Comic Neue', cursive",
+                fontWeight: "bold",
+                boxShadow: "5px 5px 0 #000",
+                transition: "all 0.2s",
+                ":focus": {
+                  boxShadow: "3px 3px 0 #000",
+                  transform: "translate(2px, 2px)",
+                },
+              }}
+              placeholder="hero@example.com"
+              required
+            />
+          </div>
+
+          {/* Phone Input */}
+          <div>
+            <label
+              htmlFor="phone"
+              style={{
+                display: "block",
+                fontSize: "0.875rem",
+                fontWeight: "bold",
+                color: "#ff4757",
+                marginBottom: "0.5rem",
+                fontFamily: "'Comic Neue', cursive",
+                textTransform: "uppercase",
+              }}
+            >
+              📱 HERO PHONE
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              style={{
+                width: "90%",
+                padding: "0.75rem 1rem",
+                border: "3px solid #ff4757",
+                borderRadius: "8px",
+                outline: "none",
+                backgroundColor: "#2d2d42",
+                color: "#fff",
+                fontFamily: "'Comic Neue', cursive",
+                fontWeight: "bold",
+                boxShadow: "5px 5px 0 #000",
+                transition: "all 0.2s",
+                ":focus": {
+                  boxShadow: "3px 3px 0 #000",
+                  transform: "translate(2px, 2px)",
+                },
+              }}
+              placeholder="+91 012-3456-789"
+              required
+            />
+          </div>
+
+          {/* Password Input */}
+          <div>
+            <label
+              htmlFor="password"
+              style={{
+                display: "block",
+                fontSize: "0.875rem",
+                fontWeight: "bold",
+                color: "#ff4757",
+                marginBottom: "0.5rem",
+                fontFamily: "'Comic Neue', cursive",
+                textTransform: "uppercase",
+              }}
+            >
+              🔐 SUPER SECRET PASSWORD
+            </label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              style={{
+                width: "90%",
+                padding: "0.75rem 1rem",
+                border: "3px solid #ff4757",
+                borderRadius: "8px",
+                outline: "none",
+                backgroundColor: "#2d2d42",
+                color: "#fff",
+                fontFamily: "'Comic Neue', cursive",
+                fontWeight: "bold",
+                boxShadow: "5px 5px 0 #000",
+                transition: "all 0.2s",
+                ":focus": {
+                  boxShadow: "3px 3px 0 #000",
+                  transform: "translate(2px, 2px)",
+                },
+              }}
+              placeholder="Create your secret code"
+              required
+            />
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            style={{
+              width: "100%",
+              backgroundColor: "#ff4757",
+              color: "#fff",
+              padding: "1rem",
+              borderRadius: "8px",
+              fontWeight: "bold",
+              border: "3px solid #000",
+              cursor: "pointer",
+              marginTop: "1.5rem",
+              fontFamily: "'Bangers', cursive",
+              letterSpacing: "2px",
+              fontSize: "1.3rem",
+              transition: "all 0.2s",
+              boxShadow: "8px 8px 0 #000",
+              textTransform: "uppercase",
+              ":hover": {
+                backgroundColor: "#ff0000",
+                transform: "translate(2px, 2px)",
+                boxShadow: "6px 6px 0 #000",
+              },
+              ":active": {
+                transform: "translate(4px, 4px)",
+                boxShadow: "4px 4px 0 #000",
+              },
+            }}
+          >
+            💥 ACTIVATE HERO PROFILE!
+          </button>
+        </form>
+
+        {/* Already have an account? */}
+        <div
+          style={{
+            marginTop: "1.5rem",
+            textAlign: "center",
+            fontSize: "0.875rem",
+            color: "#ddd",
+            fontFamily: "'Comic Neue', cursive",
+          }}
+        >
+          Already registered?{" "}
+          <a
+            href="#"
+            style={{
+              color: "#ff4757",
+              fontWeight: "bold",
+              textDecoration: "underline",
+            }}
+          >
+            LOGIN HERE
+          </a>
+        </div>
+
+        {/* Footer */}
+        <div
+          style={{
+            marginTop: "2rem",
+            textAlign: "center",
+            fontSize: "0.7rem",
+            color: "#ff4757",
+            fontFamily: "'Comic Neue', cursive",
+            fontWeight: "bold",
+            borderTop: "2px dashed #ff4757",
+            paddingTop: "1rem",
+          }}
+        >
+          <span style={{ textShadow: "1px 1px 0 #000" }}>
+            By registering, you agree to our{" "}
+            <a href="#" style={{ color: "#fff", textDecoration: "underline" }}>
+              Hero Terms of Service
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ComicRegisterPage;
