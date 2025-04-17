@@ -54,7 +54,7 @@ const InlineStyledLoginPage = () => {
       {/* Logo */}
       <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
         <img
-          src="https://unsplash.com/photos/a-blurry-image-of-a-black-background-with-a-red-orange-and-blue-mjiE0i_BsIk" // Replace with your actual logo URL
+          src="https://unsplash.com/photos/a-blurry-image-of-a-black-background-with-a-red-orange-and-blue-mjiE0i_BsIk" 
           //alt="Company Logo"
           style={{
             height: "50px",
