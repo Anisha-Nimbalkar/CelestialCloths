@@ -1,0 +1,340 @@
+import { useState } from "react";
+
+const ComicAdminLogin = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [accessCode, setAccessCode] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Admin login attempt:", { username, password, accessCode });
+    alert("ACCESS GRANTED! Welcome, Admin!");
+  };
+
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#0a0a1a", // Darker background for admin feel
+        backgroundImage: "radial-gradient(#ff4757 1px, transparent 1px)", // Red dot pattern
+        backgroundSize: "20px 20px",
+        position: "relative",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "1rem",
+        fontFamily: "'Comic Neue', cursive, sans-serif",
+      }}
+    >
+      {/* **TOP SECRET** Banner */}
+      <div
+        style={{
+          position: "absolute",
+          top: "20px",
+          left: "0",
+          right: "0",
+          textAlign: "center",
+          backgroundColor: "#ff4757",
+          color: "#fff",
+          padding: "0.5rem",
+          borderTop: "3px solid #000",
+          borderBottom: "3px solid #000",
+          fontFamily: "'Bangers', cursive",
+          letterSpacing: "3px",
+          fontSize: "1.2rem",
+          boxShadow: "0 4px 0 #000",
+          zIndex: 10,
+        }}
+      >
+        ⚠️ TOP SECRET - ADMIN ACCESS ONLY ⚠️
+      </div>
+
+      {/* **Comic-style admin login panel** */}
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "30rem",
+          backgroundColor: "#fff",
+          borderRadius: "20px",
+          border: "5px solid #000",
+          boxShadow: "10px 10px 0 #ff4757", // Red shadow for danger vibe
+          padding: "2rem",
+          position: "relative",
+          marginTop: "3rem",
+          background: "linear-gradient(135deg, #fff 0%, #f8f9fa 100%)",
+        }}
+      >
+        {/* **"RESTRICTED" Comic Decoration** */}
+        <div
+          style={{
+            position: "absolute",
+            top: "-25px",
+            right: "-25px",
+            backgroundColor: "#ff4757",
+            color: "#fff",
+            border: "3px solid #000",
+            borderRadius: "50%",
+            width: "60px",
+            height: "60px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "1.2rem",
+            fontWeight: "bold",
+            fontFamily: "'Bangers', cursive",
+            transform: "rotate(15deg)",
+            boxShadow: "4px 4px 0 #000",
+          }}
+        >
+          🔒
+        </div>
+
+        {/* **Admin Logo** */}
+        <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+          <div
+            style={{
+              display: "inline-block",
+              padding: "0.5rem 1.5rem",
+              backgroundColor: "#000",
+              color: "#ff4757",
+              fontSize: "1.8rem",
+              fontWeight: "bold",
+              fontFamily: "'Bangers', cursive",
+              letterSpacing: "2px",
+              border: "3px solid #ff4757",
+              borderRadius: "10px",
+              boxShadow: "6px 6px 0 #ff4757",
+              textShadow: "2px 2px 0 #000",
+            }}
+          >
+            ADMIN ZONE
+          </div>
+        </div>
+
+        {/* **Header** */}
+        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+          <h1
+            style={{
+              fontSize: "2rem",
+              fontWeight: "bold",
+              color: "#000",
+              marginBottom: "0.5rem",
+              fontFamily: "'Bangers', cursive",
+              letterSpacing: "2px",
+              textShadow: "3px 3px 0 #ff4757",
+            }}
+          >
+            SECURE LOGIN
+          </h1>
+          <p
+            style={{
+              color: "#333",
+              fontSize: "0.875rem",
+              fontFamily: "'Comic Neue', cursive",
+              fontWeight: "bold",
+            }}
+          >
+            <span style={{ color: "#ff4757" }}>⚠️ WARNING:</span> Unauthorized access will result in <span style={{ textDecoration: "line-through" }}>BANISHMENT</span> logging.
+          </p>
+        </div>
+
+        {/* **Comic-style divider (danger stripes!)** */}
+        <div
+          style={{
+            position: "relative",
+            margin: "1.5rem 0",
+            height: "8px",
+            background: "repeating-linear-gradient(45deg, #ff4757, #ff4757 10px, #000 10px, #000 20px)",
+            borderTop: "2px solid #000",
+            borderBottom: "2px solid #000",
+          }}
+        ></div>
+
+        {/* **Admin Login Form (EXTRA SECURE!)** */}
+        <form
+          onSubmit={handleSubmit}
+          style={{ display: "flex", flexDirection: "column", gap: "1.2rem" }}
+        >
+          {/* **Username Input** */}
+          <div>
+            <label
+              htmlFor="username"
+              style={{
+                display: "block",
+                fontSize: "0.875rem",
+                fontWeight: "bold",
+                color: "#000",
+                marginBottom: "0.5rem",
+                fontFamily: "'Comic Neue', cursive",
+                textTransform: "uppercase",
+              }}
+            >
+              🦹‍♂️ ADMIN USERNAME
+            </label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              style={{
+                width: "100%",
+                padding: "0.75rem 1rem",
+                border: "3px solid #000",
+                borderRadius: "8px",
+                outline: "none",
+                backgroundColor: "#fffacd",
+                fontFamily: "'Comic Neue', cursive",
+                fontWeight: "bold",
+                boxShadow: "5px 5px 0 #ff4757",
+                transition: "all 0.2s",
+                ":focus": {
+                  boxShadow: "3px 3px 0 #ff4757",
+                  transform: "translate(2px, 2px)",
+                },
+              }}
+              placeholder="e.g., superadmin"
+              required
+            />
+          </div>
+
+          {/* **Password Input** */}
+          <div>
+            <label
+              htmlFor="password"
+              style={{
+                display: "block",
+                fontSize: "0.875rem",
+                fontWeight: "bold",
+                color: "#000",
+                marginBottom: "0.5rem",
+                fontFamily: "'Comic Neue', cursive",
+                textTransform: "uppercase",
+              }}
+            >
+              🔑 TOP-SECRET PASSWORD
+            </label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              style={{
+                width: "100%",
+                padding: "0.75rem 1rem",
+                border: "3px solid #000",
+                borderRadius: "8px",
+                outline: "none",
+                backgroundColor: "#fffacd",
+                fontFamily: "'Comic Neue', cursive",
+                fontWeight: "bold",
+                boxShadow: "5px 5px 0 #ff4757",
+                transition: "all 0.2s",
+                ":focus": {
+                  boxShadow: "3px 3px 0 #ff4757",
+                  transform: "translate(2px, 2px)",
+                },
+              }}
+              placeholder="••••••••"
+              required
+            />
+          </div>
+
+          {/* **Access Code (Extra Security!)** */}
+          <div>
+            <label
+              htmlFor="accessCode"
+              style={{
+                display: "block",
+                fontSize: "0.875rem",
+                fontWeight: "bold",
+                color: "#000",
+                marginBottom: "0.5rem",
+                fontFamily: "'Comic Neue', cursive",
+                textTransform: "uppercase",
+              }}
+            >
+              🚨 2FA ACCESS CODE
+            </label>
+            <input
+              type="text"
+              id="accessCode"
+              value={accessCode}
+              onChange={(e) => setAccessCode(e.target.value)}
+              style={{
+                width: "100%",
+                padding: "0.75rem 1rem",
+                border: "3px solid #000",
+                borderRadius: "8px",
+                outline: "none",
+                backgroundColor: "#fffacd",
+                fontFamily: "'Comic Neue', cursive",
+                fontWeight: "bold",
+                boxShadow: "5px 5px 0 #ff4757",
+                transition: "all 0.2s",
+                ":focus": {
+                  boxShadow: "3px 3px 0 #ff4757",
+                  transform: "translate(2px, 2px)",
+                },
+              }}
+              placeholder="e.g., 1337-COMIC-ADMIN"
+              required
+            />
+          </div>
+
+          {/* **SUBMIT BUTTON (DANGER ZONE!)** */}
+          <button
+            type="submit"
+            style={{
+              width: "100%",
+              backgroundColor: "#ff4757",
+              color: "#fff",
+              padding: "1rem",
+              borderRadius: "8px",
+              fontWeight: "bold",
+              border: "3px solid #000",
+              cursor: "pointer",
+              marginTop: "1.5rem",
+              fontFamily: "'Bangers', cursive",
+              letterSpacing: "2px",
+              fontSize: "1.3rem",
+              transition: "all 0.2s",
+              boxShadow: "8px 8px 0 #000",
+              textTransform: "uppercase",
+              ":hover": {
+                backgroundColor: "#ff0000",
+                transform: "translate(2px, 2px)",
+                boxShadow: "6px 6px 0 #000",
+              },
+              ":active": {
+                transform: "translate(4px, 4px)",
+                boxShadow: "4px 4px 0 #000",
+              },
+            }}
+          >
+            💥 ACCESS CONTROL PANEL
+          </button>
+        </form>
+
+        {/* **"SECURITY ALERT" Footer** */}
+        <div
+          style={{
+            marginTop: "2rem",
+            textAlign: "center",
+            fontSize: "0.7rem",
+            color: "#ff4757",
+            fontFamily: "'Comic Neue', cursive",
+            fontWeight: "bold",
+            borderTop: "2px dashed #ff4757",
+            paddingTop: "1rem",
+          }}
+        >
+          <span style={{ textShadow: "1px 1px 0 #000" }}>
+            🔐 This system is monitored. Unauthorized access is prohibited.
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ComicAdminLogin;

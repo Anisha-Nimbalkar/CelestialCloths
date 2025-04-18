@@ -1,0 +1,13 @@
+{
+  "name": "zidio-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react-router-dom": "^7.5.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.4"
+  }
+}
