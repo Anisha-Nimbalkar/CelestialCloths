@@ -1,0 +1,67 @@
+.category-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f8f8f8;
+  }
+  
+  .category-section h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+  }
+  
+  .category-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .category-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .category-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .category-card button {
+    background-color: #4682B4; /* Steel blue */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .category-card button:hover {
+    background-color: #36648B;
+  }
+  
+  /* Theme specific styles (you can adjust these) */
+  .superhero-theme {
+    /* Add superhero related styles if needed */
+  }
+  
+  .starry-night-theme {
+    /* Add starry night related styles if needed */
+  }
+  
+  .comics-theme {
+    /* Add comics related styles if needed */
+  }

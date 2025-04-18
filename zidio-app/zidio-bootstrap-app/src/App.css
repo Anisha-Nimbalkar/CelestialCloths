@@ -1,0 +1,10 @@
+/* Basic reset and general styles */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #333;
+}
+
+/* You can add more global styles here */
