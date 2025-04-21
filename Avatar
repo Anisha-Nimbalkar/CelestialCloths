@@ -1,0 +1,281 @@
+import { useState } from "react";
+
+const ComicAvatarSelectPage = () => {
+  // Sample avatar options (replace with your actual avatars)
+  const avatarOptions = [
+    "https://i.imgur.com/1.png",
+    "https://i.imgur.com/2.png",
+    "https://i.imgur.com/3.png",
+    "https://i.imgur.com/4.png",
+    "https://i.imgur.com/5.png",
+    "https://i.imgur.com/6.png",
+  ];
+
+  const [selectedAvatar, setSelectedAvatar] = useState(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!selectedAvatar) {
+      alert("WHAM! Please select an avatar first!");
+      return;
+    }
+    console.log("Selected avatar:", selectedAvatar);
+    alert("KAPOW! Avatar updated successfully!");
+    // Here you would typically send the selected avatar URL to your backend
+  };
+
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#0a0a1a",
+        backgroundImage: "radial-gradient(#ff4757 1px, transparent 1px)",
+        backgroundSize: "20px 20px",
+        position: "relative",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "1rem",
+        fontFamily: "'Comic Neue', cursive, sans-serif",
+      }}
+    >
+      {/* Main container */}
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "32rem", // Slightly wider for avatar grid
+          backgroundColor: "#1a1a2e",
+          borderRadius: "20px",
+          border: "4px solid #ff4757",
+          boxShadow: "8px 8px 0 #000",
+          padding: "2rem",
+          position: "relative",
+        }}
+      >
+        {/* Comic "POW!" decoration */}
+        <div
+          style={{
+            position: "absolute",
+            top: "-30px",
+            right: "-20px",
+            fontSize: "2rem",
+            fontWeight: "bold",
+            color: "#ff4757",
+            transform: "rotate(15deg)",
+            textShadow: "3px 3px 0 #000",
+            zIndex: 2,
+          }}
+        >
+          ZAP!
+        </div>
+
+        {/* Logo */}
+        <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+          <div
+            style={{
+              display: "inline-block",
+              padding: "0.5rem 1.5rem",
+              backgroundColor: "#ff4757",
+              color: "#fff",
+              fontSize: "1.5rem",
+              fontWeight: "bold",
+              fontFamily: "'Bangers', cursive",
+              letterSpacing: "1px",
+              border: "3px solid #000",
+              borderRadius: "10px",
+              boxShadow: "4px 4px 0 #000",
+              transform: "rotate(-3deg)",
+              marginBottom: "1rem",
+            }}
+          >
+            CELESTIAL CLOTHES
+          </div>
+        </div>
+
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+          <h1
+            style={{
+              fontSize: "1.8rem",
+              fontWeight: "bold",
+              color: "#ff4757",
+              marginBottom: "0.5rem",
+              fontFamily: "'Bangers', cursive",
+              letterSpacing: "2px",
+              textShadow: "2px 2px 0 #000",
+            }}
+          >
+            CHOOSE YOUR HEROIC AVATAR
+          </h1>
+          <p
+            style={{
+              color: "#ddd",
+              fontSize: "0.875rem",
+              fontFamily: "'Comic Neue', cursive",
+            }}
+          >
+            Select from our legendary character collection
+          </p>
+        </div>
+
+        {/* Comic-style divider */}
+        <div
+          style={{
+            position: "relative",
+            marginBottom: "1.5rem",
+            height: "10px",
+            background:
+              "repeating-linear-gradient(45deg, #ff4757, #ff4757 10px, #ffa502 10px, #ffa502 20px)",
+            borderTop: "2px solid #000",
+            borderBottom: "2px solid #000",
+          }}
+        ></div>
+
+        {/* Selected Avatar Preview */}
+        {selectedAvatar && (
+          <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+            <div
+              style={{
+                width: "120px",
+                height: "120px",
+                borderRadius: "50%",
+                backgroundColor: "#2d2d42",
+                border: "3px solid #ff4757",
+                margin: "0 auto",
+                overflow: "hidden",
+                position: "relative",
+                boxShadow: "5px 5px 0 #000",
+              }}
+            >
+              <img
+                src={selectedAvatar}
+                alt="Selected avatar"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            </div>
+            <p
+              style={{
+                color: "#ff4757",
+                fontFamily: "'Bangers', cursive",
+                marginTop: "0.5rem",
+                fontSize: "1.1rem",
+              }}
+            >
+              YOUR SELECTION
+            </p>
+          </div>
+        )}
+
+        {/* Avatar Selection Grid */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: "1rem",
+            marginBottom: "2rem",
+          }}
+        >
+          {avatarOptions.map((avatar, index) => (
+            <div
+              key={index}
+              onClick={() => setSelectedAvatar(avatar)}
+              style={{
+                width: "100%",
+                aspectRatio: "1/1",
+                borderRadius: "50%",
+                backgroundColor: "#2d2d42",
+                border:
+                  selectedAvatar === avatar
+                    ? "3px solid #ff4757"
+                    : "3px solid #000",
+                overflow: "hidden",
+                cursor: "pointer",
+                transition: "all 0.2s",
+                boxShadow:
+                  selectedAvatar === avatar
+                    ? "4px 4px 0 #000"
+                    : "2px 2px 0 #000",
+                ":hover": {
+                  transform: "translateY(-5px)",
+                  boxShadow: "4px 4px 0 #000",
+                },
+              }}
+            >
+              <img
+                src={avatar}
+                alt={`Avatar option ${index + 1}`}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Submit Button */}
+        <button
+          onClick={handleSubmit}
+          disabled={!selectedAvatar}
+          style={{
+            width: "100%",
+            backgroundColor: selectedAvatar ? "#ff4757" : "#555",
+            color: "#fff",
+            padding: "0.75rem 1rem",
+            borderRadius: "8px",
+            fontWeight: "bold",
+            border: "3px solid #000",
+            cursor: selectedAvatar ? "pointer" : "not-allowed",
+            fontFamily: "'Bangers', cursive",
+            letterSpacing: "1px",
+            fontSize: "1.2rem",
+            transition: "all 0.2s",
+            boxShadow: "6px 6px 0 #000",
+            textTransform: "uppercase",
+            ":hover": selectedAvatar
+              ? {
+                  backgroundColor: "#ff6b81",
+                  transform: "translate(2px, 2px)",
+                  boxShadow: "4px 4px 0 #000",
+                }
+              : {},
+          }}
+        >
+          {selectedAvatar ? "KABOOM! SAVE AVATAR" : "SELECT AN AVATAR"}
+        </button>
+
+        {/* Comic-style divider */}
+        <div
+          style={{
+            position: "relative",
+            margin: "1.5rem 0",
+            height: "10px",
+            background:
+              "repeating-linear-gradient(-45deg, #2ed573, #2ed573 10px, #7bed9f 10px, #7bed9f 20px)",
+            borderTop: "2px solid #000",
+            borderBottom: "2px solid #000",
+          }}
+        ></div>
+
+        {/* Footer */}
+        <div
+          style={{
+            textAlign: "center",
+            fontSize: "0.75rem",
+            color: "#ddd",
+            fontFamily: "'Comic Neue', cursive",
+          }}
+        >
+          New avatars added monthly by our heroic artists!
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ComicAvatarSelectPage;
