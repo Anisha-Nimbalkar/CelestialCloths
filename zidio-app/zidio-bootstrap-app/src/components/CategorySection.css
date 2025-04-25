@@ -55,7 +55,13 @@
   
   /* Theme specific styles (you can adjust these) */
   .superhero-theme {
-    /* Add superhero related styles if needed */
+    .superhero-theme {
+      /* background-image: url('/Users/mihirpandey/CelestialCloths/zidio-app/zidio-bootstrap-app/src/assets/superhero.jpg'); adjust path */
+      background-size: cover;
+      background-position: center;
+      color: #f8d12f;
+    } 
+    
   }
   
   .starry-night-theme {

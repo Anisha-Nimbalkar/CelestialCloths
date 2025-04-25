@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
+import Home from '/Users/mihirpandey/CelestialCloths/zidio-app/zidio-bootstrap-app/src/pages/Home';
 import CategoryPage from './pages/CategoryPage'; // Example for a category page
 import ProductPage from './pages/ProductPage'; // Example for a product page
 import CartSidebar from './components/CartSidebar';

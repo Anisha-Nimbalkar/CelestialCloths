@@ -1,5 +1,6 @@
 import React from 'react';
 import './HeroSection.css'; // We'll create this CSS file
+import heroBanner from "../assets/hero banner.mp4";
 
 function HeroSection() {
   return (
@@ -11,7 +12,9 @@ function HeroSection() {
       </div>
       <div className="hero-image">
         {/* You can replace this with an actual image */}
-        <img src="https://via.placeholder.com/600/0000FF/FFFFFF?Text=Hero+Banner" alt="Hero Banner" />
+        <video autoplay muted loop playsInline width={700} >
+        <source src={heroBanner} type="video/mp4" />
+           </video> 
       </div>
     </div>
   );
